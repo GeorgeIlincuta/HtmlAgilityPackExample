@@ -17,10 +17,10 @@ namespace Experience
 
             foreach (var item in parentId)
             {
-                var title    = item.SelectSingleNode(".//*[@class='lheight22 margintop5']");
-                var price    = item.SelectSingleNode(".//*[@class='price']");
-                var location = item.SelectSingleNode(".//*[@class='lheight16']/small[1]/span/text()");
-                var time     = item.SelectSingleNode(".//*[@class='lheight16']/small[2]/span/text()").InnerText;
+                var title    = item.SelectSingleNode(".//*[@class='lheight22 margintop5']").InnerText.Trim();
+                var price    = item.SelectSingleNode(".//*[@class='price']").InnerText.Trim();
+                var location = item.SelectSingleNode(".//*[@class='lheight16']/small[1]/span/text()").InnerText.Trim();
+                var time     = item.SelectSingleNode(".//*[@class='lheight16']/small[2]/span/text()").InnerText.Trim();
 
                 if (time.Contains("Azi"))
                 {
@@ -33,10 +33,10 @@ namespace Experience
 
                 home.Add(new Apartament()
                 {
-                    Title    = title.InnerText.Trim(),
-                    Price    = price.InnerText.Trim(),
-                    Location = location.InnerText.Trim(),
-                    Time     = time.Trim()
+                    Title    = title,
+                    Price    = price,
+                    Location = location,
+                    Time     = time
                 });
               
             }
