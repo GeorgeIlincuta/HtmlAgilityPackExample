@@ -17,23 +17,31 @@ namespace Experience
 
             foreach (var item in parentId)
             {
-                var title    = item.SelectNodes("//*[@class='lheight22 margintop5']");
-                var price    = item.SelectNodes("//*[@class='price']");
-                var location = item.SelectNodes("//*[@class='lheight16']/small[1]/span/text()");
-                var time     = item.SelectNodes("//*[@class='lheight16']/small[2]/span/text()");
+                var title    = item.SelectSingleNode(".//*[@class='lheight22 margintop5']");
+                var price    = item.SelectSingleNode(".//*[@class='price']");
+                var location = item.SelectSingleNode(".//*[@class='lheight16']/small[1]/span/text()");
+                var time     = item.SelectSingleNode(".//*[@class='lheight16']/small[2]/span/text()").InnerText;
 
-                for (var i = 0; i <= parentId.Count - 1; i++)
+                if (time.Contains("Azi"))
                 {
-                    home.Add(new Apartament()
-                    {
-                        Title    = title[i].InnerText.Trim(),
-                        Price    = price[i].InnerText.Trim(),
-                        Location = location[i].InnerText.Trim(),
-                        Time     = time[i].InnerText.Trim()
-                    });
+                    time = DateTime.Today.ToShortDateString();
                 }
-                
+                else if (time.Contains("Ieri"))
+                {
+                    time = DateTime.Today.AddDays(-1).ToShortDateString();
+                }
+
+                home.Add(new Apartament()
+                {
+                    Title    = title.InnerText.Trim(),
+                    Price    = price.InnerText.Trim(),
+                    Location = location.InnerText.Trim(),
+                    Time     = time.Trim()
+                });
+              
             }
+            var today = DateTime.Today;
+            var yestarday = today.AddDays(-1);
             foreach (var item in home)
             {
                 Console.WriteLine(item.Title);
