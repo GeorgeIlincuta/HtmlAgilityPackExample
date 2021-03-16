@@ -40,8 +40,6 @@ namespace Experience
                 });
               
             }
-            var today = DateTime.Today;
-            var yestarday = today.AddDays(-1);
             foreach (var item in home)
             {
                 Console.WriteLine(item.Title);
