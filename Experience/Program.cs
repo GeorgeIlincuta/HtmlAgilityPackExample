@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using HtmlAgilityPack;
 
 namespace Experience
@@ -17,10 +18,11 @@ namespace Experience
 
             foreach (var item in parentId)
             {
-                var title    = item.SelectSingleNode(".//*[@class='lheight22 margintop5']").InnerText.Trim();
-                var price    = item.SelectSingleNode(".//*[@class='price']").InnerText.Trim();
-                var location = item.SelectSingleNode(".//*[@class='lheight16']/small[1]/span/text()").InnerText.Trim();
-                var time     = item.SelectSingleNode(".//*[@class='lheight16']/small[2]/span/text()").InnerText.Trim();
+                var title         = item.SelectSingleNode(".//*[@class='lheight22 margintop5']").InnerText.Trim();
+                var price         = item.SelectSingleNode(".//*[@class='price']").InnerText.Trim();
+                var priceFormat   = Regex.Replace(price, @"[^\u0000-\u007F]", string.Empty);
+                var location      = item.SelectSingleNode(".//*[@class='lheight16']/small[1]/span/text()").InnerText.Trim();
+                var time          = item.SelectSingleNode(".//*[@class='lheight16']/small[2]/span/text()").InnerText.Trim();
 
                 if (time.Contains("Azi"))
                 {
@@ -34,7 +36,7 @@ namespace Experience
                 home.Add(new Apartament()
                 {
                     Title    = title,
-                    Price    = price,
+                    Price    = priceFormat,
                     Location = location,
                     Time     = time
                 });
