@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Threading;
-using HtmlAgilityPack;
 
 namespace Experience
 {
@@ -10,46 +6,8 @@ namespace Experience
     {
         static void Main(string[] args)
         {
-            var home = new List<Apartament>();
-            var url = "https://www.olx.ro/imobiliare/apartamente-garsoniere-de-vanzare/bucuresti/";
-            var web = new HtmlWeb();
-
-            HtmlNode nextButton = null;
-
-            do
-            {
-                var doc = web.Load(url);
-                HtmlNodeCollection parentId = doc.DocumentNode.SelectNodes("//*[@id='offers_table']//*[@class='wrap']");
-                foreach (var item in parentId)
-                {
-                    //Thread.Sleep(500);
-                    var title = item.SelectSingleNode(".//*[@class='lheight22 margintop5']").InnerText.Trim();
-                    var price = item.SelectSingleNode(".//*[@class='price']").InnerText.Trim();
-                    var priceFormat = Regex.Replace(price, @"[^\u0000-\u007F]", string.Empty);
-                    var location = item.SelectSingleNode(".//*[@class='lheight16']/small[1]/span/text()").InnerText.Trim();
-                    var time = item.SelectSingleNode(".//*[@class='lheight16']/small[2]/span/text()").InnerText.Trim();
-
-                    if (time.Contains("Azi"))
-                    {
-                        time = DateTime.Today.ToShortDateString();
-                    }
-                    else if (time.Contains("Ieri"))
-                    {
-                        time = DateTime.Today.AddDays(-1).ToShortDateString();
-                    }
-
-                    home.Add(new Apartament()
-                    {
-                        Title = title,
-                        Price = priceFormat,
-                        Location = location,
-                        Time = time
-                    });
-
-                    nextButton = doc.DocumentNode.SelectSingleNode("//*[@class='fbold next abs large']/a");
-                    url = nextButton?.GetAttributeValue<string>("href", null);
-                }
-            } while (nextButton != null);
+            var olxScraper = new Olx();
+            var home = olxScraper.GetApartments();
 
             foreach (var item in home)
             {

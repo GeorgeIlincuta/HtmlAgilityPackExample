@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace Experience
 {
-    public class Apartament
+    public class Apartment
     {
         public string Title { get; set; }
         public string Price { get; set; }
