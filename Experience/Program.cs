@@ -7,7 +7,7 @@ namespace Experience
         static void Main(string[] args)
         {
             var olxScraper = new Olx();
-            var home = olxScraper.GetApartments();
+            var home = olxScraper.GetApartments("bucuresti");
 
             foreach (var item in home)
             {

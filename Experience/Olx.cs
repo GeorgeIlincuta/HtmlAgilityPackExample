@@ -7,10 +7,10 @@ namespace Experience
 {
     class Olx
     {
-        public List<Apartment> GetApartments()
+        public List<Apartment> GetApartments(string locationParam)
         {
             var home = new List<Apartment>();
-            var url = "https://www.olx.ro/imobiliare/apartamente-garsoniere-de-vanzare/bucuresti/";
+            var url = $"https://www.olx.ro/imobiliare/apartamente-garsoniere-de-vanzare/{ locationParam }/";
             var web = new HtmlWeb();
 
             HtmlNode nextButton = null;
