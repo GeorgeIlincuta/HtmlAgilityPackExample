@@ -18,6 +18,7 @@ namespace Experience
                 Console.WriteLine(item.Price);
                 Console.WriteLine(item.Location);
                 Console.WriteLine(item.Time);
+                Console.WriteLine(item.Link);
                 Console.WriteLine("-----------------------------------------");
             }
             Console.WriteLine(home.Count);

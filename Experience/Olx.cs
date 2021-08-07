@@ -26,6 +26,7 @@ namespace Experience
                     var priceFormat = Regex.Replace(price, @"[^\u0000-\u007F]", string.Empty);
                     var location = item.SelectSingleNode(".//*[@class='lheight16']/small[1]/span/text()").InnerText.Trim();
                     var time = item.SelectSingleNode(".//*[@class='lheight16']/small[2]/span/text()").InnerText.Trim();
+                    var link = item.SelectSingleNode(".//*[@class='photo-cell']//a").GetAttributeValue("href", String.Empty);
 
                     if (time.Contains("Azi"))
                     {
@@ -41,7 +42,8 @@ namespace Experience
                         Title = title,
                         Price = priceFormat,
                         Location = location,
-                        Time = time
+                        Time = time,
+                        Link = link
                     });
 
                     nextButton = doc.DocumentNode.SelectSingleNode("//*[@class='fbold next abs large']/a");
