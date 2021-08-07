@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using HtmlAgilityPack;
 
 namespace Experience
 {
@@ -10,7 +7,7 @@ namespace Experience
         static void Main(string[] args)
         {
             var olxScraper = new Olx();
-            var home = olxScraper.GetApartments("bucuresti");
+            var home       = olxScraper.GetApartments("bucuresti");
 
             foreach (var item in home)
             {
