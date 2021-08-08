@@ -55,5 +55,19 @@ namespace DataAccessLibrary
             }
            
         }
+
+        public void UpdateApartment(Apartment apartment)
+        {
+            string sql = "update dbo.Apartments set Title = @Title, Price = @Price, Location = @Location, Time = @Time, Link = @Link where Id = @Id";
+            db.SaveData(sql, apartment, _connectionString);
+        }
+
+        public void RemoveApartment(int id)
+        {
+            string sql = "select * from dbo.Apartments where Id = @Id";
+            var output = db.LoadData<Apartment, dynamic>(sql, new { Id = id }, _connectionString);
+            sql = "delete from dbo.Apartments where Id = @Id";
+            db.SaveData(sql, new { Id = id }, _connectionString);
+        }
     }
 }

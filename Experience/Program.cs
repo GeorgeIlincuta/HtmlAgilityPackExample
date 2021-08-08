@@ -17,11 +17,14 @@ namespace Experience
 
             foreach (var item in home)
             {
-                sql.CreateApartment(item);
+                CreateNewApartment(sql, item);
             }
-
             ReadAllApartments(sql);
 
+        }
+        private static void CreateNewApartment(SqlCrud sql, Apartment apartment)
+        {
+            sql.CreateApartment(apartment);
         }
         private static void ReadAllApartments(SqlCrud sql)
         {
@@ -31,12 +34,28 @@ namespace Experience
                 Console.WriteLine($"{ row.Id }: { row.Title} || { row.Price } || { row.Location } || { row.Time }");
             }
         }
-
-        private static void ReadApartment(SqlCrud sql, int contactId)
+        private static void ReadApartment(SqlCrud sql, int id)
         {
-            var contact = sql.GetApartmentById(contactId);
+            var contact = sql.GetApartmentById(id);
 
             Console.WriteLine($"{ contact.Id }: { contact.Title } { contact.Price } { contact.Location }");
+        }
+        private static void UpdateApartment(SqlCrud sql, Apartment apartment)
+        {
+            Apartment updateApartment = new Apartment()
+            {
+                Id = apartment.Id,
+                Title = apartment.Title,
+                Price = apartment.Price,
+                Location = apartment.Location,
+                Time = apartment.Time,
+                Link = apartment.Link
+            };
+            sql.UpdateApartment(updateApartment);
+        }
+        private static void DeleteApartment(SqlCrud sql, int id)
+        {
+            sql.RemoveApartment(id);
         }
 
         private static string GetConnectionString(string connectionStringName = "Default")
