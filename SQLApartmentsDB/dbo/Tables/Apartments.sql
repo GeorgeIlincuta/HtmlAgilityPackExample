@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[Apartments]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Title] VARCHAR(MAX) NOT NULL, 
+    [Price] VARCHAR(MAX) NOT NULL, 
+    [Location] VARCHAR(MAX) NOT NULL, 
+    [Time] VARCHAR(MAX) NOT NULL, 
+    [Link] VARCHAR(MAX) NOT NULL
+)

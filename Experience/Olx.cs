@@ -1,4 +1,5 @@
-﻿using HtmlAgilityPack;
+﻿using DataAccessLibrary.Models;
+using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;

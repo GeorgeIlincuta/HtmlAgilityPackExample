@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HtmlAgilityPackExample", "Experience\HtmlAgilityPackExample.csproj", "{54BB0D02-D155-4B25-834A-AC5CDB6226E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLibrary", "DataAccessLibrary\DataAccessLibrary.csproj", "{A7C41106-A690-4817-B119-492728AA5DD9}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SQLApartmentsDB", "SQLApartmentsDB\SQLApartmentsDB.sqlproj", "{7A63F875-2DE6-4F3D-AD47-F722A47D7F6A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,16 @@ Global
 		{54BB0D02-D155-4B25-834A-AC5CDB6226E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54BB0D02-D155-4B25-834A-AC5CDB6226E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54BB0D02-D155-4B25-834A-AC5CDB6226E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7C41106-A690-4817-B119-492728AA5DD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7C41106-A690-4817-B119-492728AA5DD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7C41106-A690-4817-B119-492728AA5DD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7C41106-A690-4817-B119-492728AA5DD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A63F875-2DE6-4F3D-AD47-F722A47D7F6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A63F875-2DE6-4F3D-AD47-F722A47D7F6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A63F875-2DE6-4F3D-AD47-F722A47D7F6A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7A63F875-2DE6-4F3D-AD47-F722A47D7F6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A63F875-2DE6-4F3D-AD47-F722A47D7F6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A63F875-2DE6-4F3D-AD47-F722A47D7F6A}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
